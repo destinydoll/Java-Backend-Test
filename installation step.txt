@@ -1,0 +1,8 @@
+run mvn install on sprintboot project to create War file
+Download Apache Tomcat and unpackage it into a tomcat folder
+Copy our WAR file from target/test-0.0.1-SNAPSHOT.war to the tomcat/webapps/ folder
+From a terminal navigate to tomcat/bin folder and execute
+catalina.bat run (on Windows)
+catalina.sh run (on Unix-based systems)
+for api link
+http://localhost:8080/test-0.0.1-SNAPSHOT/register for registration api and http://localhost:8080/test-0.0.1-SNAPSHOT/login for login and shown user data api
