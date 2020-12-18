@@ -15,6 +15,9 @@ output example :{
     "responseMsg": "register success"
 }
 
+registration part have 2 errors code
+Error code 10 which indicate duplicate username 
+Error code 20 which indicate that registrant salary less than 15000
 and show user deatil after login part
 Url : http://localhost:8080/login
 method: POST
