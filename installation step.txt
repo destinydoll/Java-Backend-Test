@@ -5,4 +5,4 @@ From a terminal navigate to tomcat/bin folder and execute
 catalina.bat run (on Windows)
 catalina.sh run (on Unix-based systems)
 for api link
-http://localhost:8080/test-0.0.1-SNAPSHOT/register for registration api and http://localhost:8080/test-0.0.1-SNAPSHOT/login for login and shown user data api
+http://localhost:8080/test-1/register for registration api and http://localhost:8080/test-1/login for login and shown user data api
