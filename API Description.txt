@@ -1,0 +1,32 @@
+
+JAVA Restful API for user to register and get user information after registration
+have 2 part
+first is Registration part
+Url : http://localhost:8080/register
+method: POST
+input example : {
+    "userName":"test",
+    "password":"1234",
+    "salary":50000,
+    "email":"test@test.gmail.com",
+    "phone":"0813983394"
+}
+output example :{
+    "responseMsg": "register success"
+}
+
+and show user deatil after login part
+Url : http://localhost:8080/login
+method: POST
+input example :{
+   "userName":"test",
+    "password":"1234"
+}
+output example : {
+    "userName": "test",
+    "email": "test@test.gmail.com",
+    "salary": 50000,
+    "Refcode": "256335183394",
+    "phone": "0813983394",
+    "registerDate": "2020-12-17T22:35:15.437+00:00"
+}
