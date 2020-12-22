@@ -28,7 +28,15 @@ public class UserController {
 
     @JsonView(View.userShownData.class)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public @ResponseBody User login(@RequestBody User user) {
+    public @ResponseBody
+    User login(@RequestBody User user) {
+        User userout = userService.findUserByUsername(user.getUserName());
+        return userout;
+    }
+
+    @RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
+    public @ResponseBody
+    User loginCheck(@RequestBody User user) {
         return userService.findUserByUsername(user.getUserName());
     }
 
