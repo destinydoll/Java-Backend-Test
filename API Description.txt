@@ -2,7 +2,7 @@
 JAVA Restful API for user to register and get user information after registration
 have 2 part
 first is Registration part
-Url : http://localhost:8080/register
+Url : http://localhost:8080/test/register
 method: POST
 input example : {
     "userName":"test",
@@ -16,7 +16,7 @@ output example :{
 }
 
 and show user deatil after login part
-Url : http://localhost:8080/login
+Url : http://localhost:8080/test/login
 method: POST
 input example :{
    "userName":"test",
