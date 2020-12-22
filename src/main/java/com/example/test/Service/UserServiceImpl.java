@@ -23,8 +23,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
-    private String generateReferenceCodeFromDateAndPhone(Date RegisteredDate, String phone) {
+    public String generateReferenceCodeFromDateAndPhone(Date RegisteredDate, String phone) {
         DateFormat dateFormat = new SimpleDateFormat("yyyymmdd");
         String lastFourDigits = phone.substring(phone.length() - 4);
         String strDate = dateFormat.format(RegisteredDate);
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
         return refCode;
     }
 
-    private String generateMemberTypeFromSalary(int salary) {
+    public String generateMemberTypeFromSalary(int salary) {
         String memberType = "";
         if (salary > 50000) {
             memberType = "Platinum";
@@ -46,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean RegisterUser(User user) {
-		user.setMemberType(generateMemberTypeFromSalary(user.getSalary()));
+        user.setMemberType(generateMemberTypeFromSalary(user.getSalary()));
         // set date
         Date today = new Date();
         String refcode = generateReferenceCodeFromDateAndPhone(today, user.getPhone());
@@ -56,24 +55,18 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         User userSaved = repository.save(user);
         Boolean isSaved;
-        if(userSaved!=null){
-            isSaved  =  true;
-        }else{
-            isSaved =  false;
-        }
+        isSaved = userSaved != null;
         return isSaved;
     }
 
     @Override
-    public User FindUser(User user) {
-
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        User matched = repository.findByUserName(user.getUserName());
+    public User findUserByUsername(String userName) {
+        User matched = repository.findByUserName(userName);
         return matched;
     }
-    @Override 
-    public  boolean hasMatchedUsername(String username){
+
+    @Override
+    public boolean hasMatchedUsername(String username) {
         User matched = repository.findByUserName(username);
         return matched != null;
     }

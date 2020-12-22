@@ -29,7 +29,7 @@ public class UserController {
     @JsonView(View.userShownData.class)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody User login(@RequestBody User user) {
-        return userService.FindUser(user);
+        return userService.findUserByUsername(user.getUserName());
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
